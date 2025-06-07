@@ -51,7 +51,21 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
-  
+    
+    
+    
+    
+    
+    // Contract between hashCode() and equals()
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + this.day;
+        hash = 29 * hash + this.month;
+        hash = 29 * hash + this.year;
+        return hash;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -68,7 +82,7 @@ public class SimpleDate {
         final SimpleDate other = (SimpleDate) obj;
         if (this.day != other.day) {
             return false;
-        }
+       }
         if (this.month != other.month) {
             return false;
         }
