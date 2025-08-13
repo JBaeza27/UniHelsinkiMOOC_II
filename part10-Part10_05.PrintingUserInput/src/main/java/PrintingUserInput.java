@@ -10,7 +10,7 @@ public class PrintingUserInput {
         while(true){
             
             String input = scanner.nextLine();
-            
+            // or .isEmpty()
             if(input.equals("")){
                 break;
             }
