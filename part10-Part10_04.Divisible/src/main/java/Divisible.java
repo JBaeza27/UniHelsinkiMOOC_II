@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+
 import java.util.stream.Collectors;
 
 public class Divisible {
@@ -19,7 +20,13 @@ public class Divisible {
     }
 
     public static ArrayList<Integer> divisible(ArrayList<Integer> numbers) {
-        return new ArrayList<>();
+        return numbers.stream()
+                .filter(i -> i % 2 == 0 ||  i % 3 == 0 ||  i % 5 == 0)
+                // This would be lcm whih would be 30
+                //                .filter(i -> i % 2 == 0)
+                //                .filter(i -> i % 3 == 0)
+                //                .filter(i -> i % 5 == 0)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
