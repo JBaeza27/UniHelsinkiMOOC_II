@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package a;
 
 /**
  *
  * @author Sierra02
  */
-public interface Saveable {
-//    public void save();
-//    public void delete();
-//    public void load(String address); --- instead of this do
-
-    void save();
-
-    void delete();
-
-    void load(String address);
+public class A {
     
 }
