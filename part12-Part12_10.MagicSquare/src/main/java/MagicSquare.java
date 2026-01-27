@@ -17,15 +17,64 @@ public class MagicSquare {
 
     // implement these three methods
     public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
+        ArrayList<Integer> listOfSums = new ArrayList<>();
+        for(int i = 0; i < this.square.length; i++){
+            listOfSums.add(0);
+        }
+        for(int i = 0; i < this.square.length; i++){
+            int sum = 0;
+            for(int j = 0; j < this.square[i].length; j++){
+                sum += this.square[i][j];
+            }
+            listOfSums.set(i, sum);
+        }
+        return listOfSums;
     }
 
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
+        ArrayList<Integer> listOfSums = new ArrayList<>();
+        for(int i = 0; i < this.square[0].length; i++){
+            listOfSums.add(0);
+        }
+        for(int i = 0; i < this.square.length; i++){
+            for(int j = 0; j < this.square[i].length; j++){
+                int number = this.square[i][j];
+                int sumNum = listOfSums.get(j);
+                sumNum += number;
+                listOfSums.set(j, sumNum);
+            }
+        }
+        return listOfSums;
     }
 
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumOfDiagonals = new ArrayList<>();
+        int sumDiagonal = 0;
+        int sumReverse = 0;
+        
+        sumOfDiagonals.add(sumDiagonal);
+        sumOfDiagonals.add(sumReverse);
+        
+        int size = this.square.length;
+        
+        for(int i = 0; i < this.square.length; i++){
+            for(int j = 0; j < this.square.length; j++){
+                
+                // ex ; 0,0   1,1   2,2
+                if(i == j){
+                    sumDiagonal += this.square[i][j];
+                    sumOfDiagonals.set(0, sumDiagonal);
+                }
+                
+                if(i + j == size - 1){
+                    sumReverse += this.square[i][j];
+                    sumOfDiagonals.set(1, sumReverse);
+                }
+            }
+        }
+        
+        
+        return sumOfDiagonals;
     }
 
     // ready-made helper methods -- don't touch these
